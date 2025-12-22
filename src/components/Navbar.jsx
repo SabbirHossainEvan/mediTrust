@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, ShoppingCart, User, Menu, X } from 'lucide-react';
+import logoImage from '../assets/logoImage.svg';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -12,12 +13,13 @@ const Navbar = () => {
     <nav className="bg-[#E5E7EB] px-4 py-3 shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
         
-        {/* Logo Section */}
+        {/* Logo Section - মোবাইল এবং ডেস্কটপ উভয়ের জন্য আপডেট করা হয়েছে */}
         <div className="flex items-center gap-2 min-w-fit">
-          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-sm">
-             <img src="/logo.png" alt="MediTrust" className="w-8 h-8" /> 
-          </div>
-          <span className="font-bold text-[#2E5A88] text-lg hidden sm:block">
+          {/* লোগো আইকন/ইমেজ */}
+          <img src={logoImage} alt="MediTrust Logo" className="w-8 h-8 object-contain" />
+          
+          {/* লোগো টেক্সট - মোবাইলে একটু ছোট এবং ডেস্কটপে বড় দেখাবে */}
+          <span className="font-bold text-[#2E5A88] text-xl sm:text-3xl flex">
             Medi<span className="text-[#7AB342]">Trust</span>
           </span>
         </div>
@@ -43,7 +45,7 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Search Bar - Animated expansion on focus */}
+        {/* Search Bar */}
         <div className="flex-1 max-w-md hidden md:block">
           <div className="relative group">
             <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
@@ -73,14 +75,14 @@ const Navbar = () => {
           <motion.button 
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
-            className="p-2 bg-white rounded-full shadow-sm text-gray-700 hover:bg-gray-50"
+            className="p-2 bg-white rounded-full shadow-sm text-gray-700 hover:bg-gray-50 hidden sm:flex"
           >
             <User size={20} />
           </motion.button>
 
           {/* Mobile Menu Toggle */}
           <button 
-            className="lg:hidden p-2 text-gray-700"
+            className="lg:hidden p-2 text-gray-700 hover:bg-white rounded-full transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -92,23 +94,36 @@ const Navbar = () => {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white mt-3 rounded-xl overflow-hidden shadow-lg"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="lg:hidden bg-white mt-3 rounded-2xl overflow-hidden shadow-xl border border-gray-100"
           >
-            <div className="flex flex-col p-4 gap-4">
+            <div className="flex flex-col p-5 gap-4">
               {navLinks.map((link) => (
-                <a key={link} href={`#${link}`} className="text-gray-700 font-medium hover:text-blue-600">
+                <button
+                  key={link}
+                  onClick={() => {
+                    setActiveTab(link);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className={`text-left font-semibold py-2 px-4 rounded-lg transition-all ${
+                    activeTab === link 
+                      ? 'bg-blue-50 text-blue-600' 
+                      : 'text-gray-700 hover:bg-gray-50'
+                  }`}
+                >
                   {link}
-                </a>
+                </button>
               ))}
+              <div className="h-px bg-gray-100 my-1" />
               <div className="relative md:hidden">
                 <input
                   type="text"
                   placeholder="Search..."
-                  className="w-full bg-gray-100 rounded-lg py-2 px-4 outline-none"
+                  className="w-full bg-gray-50 rounded-xl py-3 px-4 outline-none border border-gray-100 focus:border-blue-300"
                 />
+                <Search size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" />
               </div>
             </div>
           </motion.div>

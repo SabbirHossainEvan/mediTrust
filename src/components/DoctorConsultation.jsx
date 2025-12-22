@@ -1,9 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import doctor from '../assets/Doctors.png'
 
 const DoctorConsultation = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10">
+    <div className="max-w-8xl mx-auto  md:px-50 py-10">
       {/* Main Container with Gradient Background */}
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
@@ -26,9 +27,10 @@ const DoctorConsultation = () => {
             >
               {/* Note: Replace with your actual doctors image path */}
               <img 
-                src="https://i.ibb.co/3ykC6Y8/doctors-group.png" 
+                src={doctor}
                 alt="Doctors" 
-                className="w-full h-auto object-contain drop-shadow-2xl"
+                className="w-[100%] object-contain md:flex hidden drop-shadow-2xl"
+                
               />
             </motion.div>
           </div>
@@ -56,7 +58,7 @@ const DoctorConsultation = () => {
             <motion.button 
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-[#A83279] hover:bg-[#8e2a66] text-white px-6 py-3 rounded-lg font-semibold text-sm md:text-base shadow-lg transition-all border border-white/20"
+              className="bg-[#A83279] hover:bg-[#8e2a66] text-white px-6 py-3 rounded-lg font-semibold text-sm md:text-base shadow-lg transition-all border mb-20 border-white/20"
             >
               Live Consultation Now
             </motion.button>

@@ -1,52 +1,89 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Pagination, Autoplay, EffectCoverflow } from 'swiper/modules';
+import React from "react";
+import { motion } from "framer-motion";
+import { Swiper, SwiperSlide } from "swiper/react";
+// EffectFade এবং Autoplay ব্যবহার করা হয়েছে
+import { Pagination, Autoplay, EffectFade } from "swiper/modules";
 
 // Swiper Styles
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/effect-coverflow';
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/effect-fade";
+
+// ইমেজগুলো ইমপোর্ট করুন (আপনার পাথ অনুযায়ী)
+import img1 from "../assets/image 22 (1).png";
+import img2 from "../assets/image 19.png";
+import img3 from "../assets/image 20.png";
+import img4 from "../assets/image 21.png";
 
 const MedicineSection = () => {
   const medicines = [
-    { id: 1, name: "Sergel", strength: "20 mg", company: "Healthcare Pharmaceuticals Ltd.", price: "99.00", image: "https://i.ibb.co/6R0D9YV/medicine1.png" },
-    { id: 2, name: "Sabitar", strength: "50 mg", company: "Healthcare Pharmaceuticals Ltd.", price: "99.00", image: "https://i.ibb.co/zH9P8Xm/medicine2.png" },
-    { id: 3, name: "Edeloss Plus", strength: "10 mg", company: "Healthcare Pharmaceuticals Ltd.", price: "99.00", image: "https://i.ibb.co/mS0G6V4/medicine3.png" },
-    { id: 4, name: "Pantonix", strength: "20 mg", company: "Healthcare Pharmaceuticals Ltd.", price: "99.00", image: "https://i.ibb.co/q9Wf9pG/medicine4.png" },
-    { id: 5, name: "Sergel", strength: "20 mg", company: "Healthcare Pharmaceuticals Ltd.", price: "99.00", image: "https://i.ibb.co/6R0D9YV/medicine1.png" },
+    {
+      id: 1,
+      name: "Sergel",
+      strength: "20 mg",
+      company: "Healthcare Pharmaceuticals Ltd.",
+      price: "99.00",
+      image: img1,
+    },
+    {
+      id: 2,
+      name: "Sabitar",
+      strength: "50 mg",
+      company: "Healthcare Pharmaceuticals Ltd.",
+      price: "99.00",
+      image: img2,
+    },
+    {
+      id: 3,
+      name: "Edeloss Plus",
+      strength: "10 mg",
+      company: "Healthcare Pharmaceuticals Ltd.",
+      price: "99.00",
+      image: img3,
+    },
+    {
+      id: 4,
+      name: "Pantonix",
+      strength: "20 mg",
+      company: "Healthcare Pharmaceuticals Ltd.",
+      price: "99.00",
+      image: img4,
+    },
+    {
+      id: 5,
+      name: "Sergel",
+      strength: "20 mg",
+      company: "Healthcare Pharmaceuticals Ltd.",
+      price: "99.00",
+      image: img1,
+    },
   ];
 
   return (
-    <section className="py-16 px-4 bg-white max-w-7xl mx-auto overflow-hidden">
-      {/* Header with Fade-in Animation */}
-      <motion.div 
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-center mb-12"
-      >
-        <h2 className="text-4xl font-bold text-gray-900 mb-4 tracking-tight">OUR MEDICINE</h2>
-        <p className="text-gray-500 max-w-2xl mx-auto leading-relaxed">
-          Lorem ipsum dolor sit amet consectetur. Facilisis amet vulputate vestibulum pulvinar mi vulputate sem urna.
+    <section className="py-10 px-4 bg-white max-w-7xl mx-auto overflow-hidden">
+      {/* Header */}
+      <div className="text-center mb-12">
+        <motion.h2
+          initial={{ opacity: 0, letterSpacing: "-5px" }}
+          whileInView={{ opacity: 1, letterSpacing: "1px" }}
+          transition={{ duration: 0.8 }}
+          className="text-4xl font-bold text-gray-900 mb-4 uppercase"
+        >
+          Our Medicine
+        </motion.h2>
+        <p className="text-gray-500 max-w-2xl mx-auto">
+          Lorem ipsum dolor sit amet consectetur. Facilisis amet vulputate
+          vestibulum pulvinar mi vulputate sem urna.
         </p>
-      </motion.div>
+      </div>
 
-      {/* Animated Medicine Slider */}
       <Swiper
-        modules={[Pagination, Autoplay, EffectCoverflow]}
-        effect={'coverflow'} // Adds a 3D slide effect
-        grabCursor={true}
-        centeredSlides={false}
+        modules={[Pagination, Autoplay]}
+        spaceBetween={30}
         slidesPerView={1}
-        coverflowEffect={{
-          rotate: 0,
-          stretch: 0,
-          depth: 100,
-          modifier: 2.5,
-        }}
+        loop={true}
         autoplay={{
-          delay: 3000,
+          delay: 4000,
           disableOnInteraction: false,
         }}
         pagination={{ clickable: true }}
@@ -58,53 +95,69 @@ const MedicineSection = () => {
       >
         {medicines.map((item, index) => (
           <SwiperSlide key={item.id}>
-            <motion.div 
-              // Slide-in animation for each card
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ delay: index * 0.1, duration: 0.5 }}
+            <motion.div
+              // New Animation: Scale up + Rotate entry
+              initial={{ opacity: 0, scale: 0.8, rotateY: 30 }}
+              whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
+              transition={{
+                type: "spring",
+                stiffness: 100,
+                delay: index * 0.1,
+              }}
               viewport={{ once: true }}
-              
-              whileHover={{ y: -12, scale: 1.02 }}
-              className="bg-[#E5E7EB] rounded-[32px] p-5 shadow-sm h-full flex flex-col transition-all duration-300"
+              className="bg-[#F1F3F6] rounded-[35px] p-5 shadow-sm border border-transparent hover:border-indigo-200 transition-all group h-full"
             >
-              {/* Image Container with inner animation */}
-              <div className="bg-white rounded-3xl p-6 mb-5 flex items-center justify-center h-52 shadow-inner group overflow-hidden">
-                <motion.img 
-                  whileHover={{ rotate: 5, scale: 1.1 }}
-                  src={item.image} 
-                  alt={item.name} 
-                  className="max-w-full max-h-full object-contain" 
+              {/* Image Container with Bounce Hover */}
+              <div className="bg-white rounded-[30px] p-6 mb-6 h-56 gap-5 flex items-center justify-center shadow-inner relative overflow-hidden">
+                <motion.img
+                  whileHover={{
+                    scale: 1.15,
+                    y: -10,
+                    transition: { type: "spring", stiffness: 300 },
+                  }}
+                  src={item.image}
+                  alt={item.name}
+                  className="max-w-full max-h-full object-contain z-10"
+                  onError={(e) => {
+                    e.target.src = "https://via.placeholder.com/200";
+                  }}
                 />
+                {/* Decorative circle behind image */}
+                <div className="absolute w-32 h-32 bg-indigo-50 rounded-full -bottom-10 -right-10 group-hover:scale-150 transition-transform duration-500" />
               </div>
 
-              {/* Info Section */}
-              <div className="flex-grow px-2">
-                <div className="flex items-center gap-2 mb-1">
-                   <h3 className="text-xl font-bold text-[#1a1a1a]">{item.name}</h3>
-                   <span className="text-[10px] bg-gray-300 px-2 py-0.5 rounded text-gray-700 font-bold uppercase">
-                     {item.strength}
-                   </span>
+              {/* Info Area */}
+              <div className="px-2">
+                <div className="flex justify-between items-center mb-2">
+                  <h3 className="text-xl font-bold text-gray-800">
+                    {item.name}
+                  </h3>
+                  <span className="text-[10px] font-bold text-indigo-600 bg-white px-2 py-1 rounded-md shadow-sm">
+                    {item.strength}
+                  </span>
                 </div>
-                <p className="text-gray-500 text-sm mb-4 font-medium leading-tight">
+                <p className="text-gray-400 text-xs mb-4 line-clamp-1">
                   {item.company}
                 </p>
-                <p className="text-2xl font-black text-gray-900 mb-6 flex items-center">
-                  <span className="text-lg mr-1 font-normal">৳</span> {item.price}
-                </p>
+                <div className="text-2xl font-black text-gray-900 mb-6 flex items-baseline">
+                  <span className="text-sm mr-1 font-bold">৳</span>
+                  {item.price}
+                </div>
               </div>
 
-              {/* Buttons with Slide-up Animation on Hover */}
-              <div className="flex gap-3 mt-auto">
-                <motion.button 
-                  whileTap={{ scale: 0.95 }}
-                  className="flex-1 bg-[#5D5FEF] hover:bg-[#4749D4] text-white text-xs py-3.5 rounded-xl font-bold shadow-md transition-colors"
+              {/* Buttons with Slide In effect */}
+              <div className="flex gap-2">
+                <motion.button
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="flex-1 bg-[#5D5FEF] text-white text-[11px] font-bold py-3.5 rounded-2xl shadow-lg shadow-indigo-200"
                 >
                   Add to cart
                 </motion.button>
-                <motion.button 
-                  whileTap={{ scale: 0.95 }}
-                  className="flex-1 bg-[#5D5FEF] hover:bg-[#4749D4] text-white text-xs py-3.5 rounded-xl font-bold shadow-md transition-colors"
+                <motion.button
+                  whileHover={{ y: -2 }}
+                  whileTap={{ scale: 0.9 }}
+                  className="flex-1 bg-white text-[#5D5FEF] border border-[#5D5FEF] text-[11px] font-bold py-3.5 rounded-2xl hover:bg-indigo-50"
                 >
                   Buy Now
                 </motion.button>
@@ -116,19 +169,15 @@ const MedicineSection = () => {
 
       <style jsx global>{`
         .swiper-pagination-bullet {
-          background: #cbd5e1 !important;
-          opacity: 1 !important;
-          width: 8px;
-          height: 8px;
-          transition: all 0.3s ease;
+          background: #d1d5db !important;
+          opacity: 0.5;
+          width: 10px;
+          height: 10px;
         }
         .swiper-pagination-bullet-active {
-          background: #4b5563 !important;
-          width: 24px !important;
-          border-radius: 10px !important;
-        }
-        .swiper-container {
-          padding-top: 20px;
+          background: #5d5fef !important;
+          opacity: 1;
+          transform: scale(1.3);
         }
       `}</style>
     </section>
