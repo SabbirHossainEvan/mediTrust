@@ -1,21 +1,54 @@
 import React, { useState } from 'react';
-import { Trash2 } from 'lucide-react';
+import { Trash2, ShoppingBag, Plus, Minus } from 'lucide-react';
 
 const ShoppingCart = () => {
-  // Initial dynamic data
+  // Updated with professional medical/health product images
   const [items, setItems] = useState([
-    { id: 1, name: 'Flowing Linen Blazer', desc: 'Printed Bermuda shorts. Waist cord.', price: 99.00, qty: 1, img: 'https://via.placeholder.com/60' },
-    { id: 2, name: 'Flowing Linen Blazer', desc: 'Printed Bermuda shorts. Waist cord.', price: 99.00, qty: 1, img: 'https://via.placeholder.com/60' },
-    { id: 3, name: 'Flowing Linen Blazer', desc: 'Printed Bermuda shorts. Waist cord.', price: 99.00, qty: 1, img: 'https://via.placeholder.com/60' },
-    { id: 4, name: 'Flowing Linen Blazer', desc: 'Printed Bermuda shorts. Waist cord.', price: 99.00, qty: 1, img: 'https://via.placeholder.com/60' },
+    { 
+      id: 1, 
+      name: 'Napa Extend', 
+      desc: 'Paracetamol BP 665mg - Fever & Pain', 
+      price: 15.00, 
+      qty: 2, 
+      img: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=200' 
+    },
+    { 
+      id: 2, 
+      name: 'Sergel 20mg', 
+      desc: 'Esomeprazole - Gastric Relief', 
+      price: 90.00, 
+      qty: 1, 
+      img: 'https://images.unsplash.com/photo-1628771065518-0d82f1938462?q=80&w=200' 
+    },
+    { 
+      id: 3, 
+      name: 'Digital Thermometer', 
+      desc: 'High precision infrared reading', 
+      price: 450.00, 
+      qty: 1, 
+      img: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?q=80&w=200' 
+    },
+    { 
+      id: 4, 
+      name: 'Hand Sanitizer', 
+      desc: '75% Alcohol - Kill 99.9% Germs', 
+      price: 120.00, 
+      qty: 3, 
+      img: 'https://images.unsplash.com/photo-1584622781564-1d9876a1df72?q=80&w=200' 
+    },
   ]);
 
-  const discount = 96.00;
+  const discount = 50.00;
 
   // Handlers
-  const updateQty = (id, newQty) => {
-    if (newQty < 1) return;
-    setItems(items.map(item => item.id === id ? { ...item, qty: parseInt(newQty) } : item));
+  const updateQty = (id, delta) => {
+    setItems(items.map(item => {
+      if (item.id === id) {
+        const newQty = item.qty + delta;
+        return { ...item, qty: newQty < 1 ? 1 : newQty };
+      }
+      return item;
+    }));
   };
 
   const removeItem = (id) => {
@@ -27,97 +60,120 @@ const ShoppingCart = () => {
   const total = subtotal - (items.length > 0 ? discount : 0);
 
   return (
-    <div className="max-w-4xl mx-auto p-4 font-sans text-gray-700">
-      {/* Header */}
-      <div className="bg-blue-500 text-white text-center py-6 rounded-t-lg shadow-sm">
-        <h1 className="text-3xl font-bold italic">Shopping Cart</h1>
-      </div>
-
-      {/* Cart Table Container */}
-      <div className="border border-gray-200 rounded-b-lg overflow-hidden bg-white shadow-sm">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
-            <thead>
-              <tr className="bg-gray-50 border-b text-sm font-semibold">
-                <th className="p-4 w-16"></th>
-                <th className="p-4">Product</th>
-                <th className="p-4 text-center">Price</th>
-                <th className="p-4 text-center">Quantity</th>
-                <th className="p-4 text-right">Total</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y">
-              {items.map((item) => (
-                <tr key={item.id} className="transition-all duration-300 hover:bg-gray-50 animate-in fade-in slide-in-from-top-1">
-                  <td className="p-4 text-center">
-                    <button 
-                      onClick={() => removeItem(item.id)}
-                      className="text-gray-400 hover:text-red-500 transition-colors"
-                    >
-                      <Trash2 size={20} />
-                    </button>
-                  </td>
-                  <td className="p-4">
-                    <div className="flex items-center gap-4">
-                      <img src={item.img} alt={item.name} className="w-16 h-16 rounded border object-cover" />
-                      <div>
-                        <div className="font-bold text-gray-800">{item.name}</div>
-                        <div className="text-xs text-gray-400">{item.desc}</div>
-                      </div>
-                    </div>
-                  </td>
-                  <td className="p-4 text-center font-medium">৳ {item.price.toFixed(2)}</td>
-                  <td className="p-4 text-center">
-                    <input 
-                      type="number" 
-                      value={item.qty} 
-                      onChange={(e) => updateQty(item.id, e.target.value)}
-                      className="w-16 border rounded p-1 text-center focus:ring-2 focus:ring-blue-400 outline-none"
-                    />
-                  </td>
-                  <td className="p-4 text-right font-bold">৳ {(item.price * item.qty).toFixed(2)}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+    <div className="max-w-5xl mx-auto p-6 font-sans text-slate-700 min-h-screen bg-gray-50/50">
+      {/* Header Banner */}
+      <div className="bg-gradient-to-r from-blue-600 to-sky-400 text-white p-8 rounded-3xl shadow-lg mb-8 flex items-center justify-between">
+        <div>
+          <h1 className="text-4xl font-extrabold flex items-center gap-3">
+            <ShoppingBag strokeWidth={2.5} /> Your Cart
+          </h1>
+          <p className="text-blue-50 mt-1 opacity-90">Review and manage your healthcare essentials.</p>
         </div>
-
-        {/* Coupon Section */}
-        <div className="p-4 bg-white border-t flex flex-col sm:flex-row gap-2">
-          <input 
-            type="text" 
-            placeholder="Coupon Code" 
-            className="flex-grow border rounded px-4 py-2 bg-gray-50 outline-none focus:border-blue-400"
-          />
-          <button className="bg-cyan-400 text-white px-8 py-2 font-bold rounded hover:bg-cyan-500 transition-all active:scale-95">
-            APPLY
-          </button>
+        <div className="hidden md:block text-right">
+          <p className="text-sm uppercase tracking-widest font-bold opacity-70">Items</p>
+          <p className="text-3xl font-black">{items.length}</p>
         </div>
       </div>
 
-      {/* Summary Section */}
-      <div className="mt-8 border border-gray-200 rounded-lg overflow-hidden bg-white shadow-sm">
-        <div className="p-4 space-y-3">
-          <div className="flex justify-between items-center text-lg font-medium">
-            <span>Subtotal</span>
-            <span>৳ {subtotal.toFixed(2)}</span>
-          </div>
-          <div className="flex justify-between items-center text-lg font-medium border-b pb-3">
-            <span>Discount</span>
-            <span>৳ {items.length > 0 ? discount.toFixed(2) : "0.00"}</span>
-          </div>
-          <div className="flex justify-between items-center text-xl font-bold pt-2">
-            <span>Total</span>
-            <span>৳ {Math.max(0, total).toFixed(2)}</span>
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* Cart List */}
+        <div className="lg:col-span-2 space-y-4">
+          {items.length > 0 ? (
+            items.map((item) => (
+              <div 
+                key={item.id} 
+                className="bg-white p-5 rounded-2xl shadow-sm border border-slate-100 flex flex-col sm:flex-row items-center gap-6 transition-all hover:shadow-md animate-in fade-in slide-in-from-left-4 duration-500"
+              >
+                {/* Image */}
+                <div className="w-24 h-24 bg-slate-50 rounded-xl overflow-hidden border border-slate-100">
+                  <img src={item.img} alt={item.name} className="w-full h-full object-cover" />
+                </div>
+
+                {/* Info */}
+                <div className="flex-grow text-center sm:text-left">
+                  <h3 className="text-lg font-bold text-slate-800">{item.name}</h3>
+                  <p className="text-xs text-slate-400 mb-2">{item.desc}</p>
+                  <p className="text-blue-600 font-bold">৳ {item.price.toFixed(2)}</p>
+                </div>
+
+                {/* Quantity Controller */}
+                <div className="flex items-center gap-3 bg-slate-50 p-1.5 rounded-xl border border-slate-100">
+                  <button 
+                    onClick={() => updateQty(item.id, -1)}
+                    className="w-8 h-8 flex items-center justify-center bg-white rounded-lg shadow-sm hover:text-blue-600 transition-colors"
+                  >
+                    <Minus size={16} />
+                  </button>
+                  <span className="w-8 text-center font-bold text-slate-800">{item.qty}</span>
+                  <button 
+                    onClick={() => updateQty(item.id, 1)}
+                    className="w-8 h-8 flex items-center justify-center bg-white rounded-lg shadow-sm hover:text-blue-600 transition-colors"
+                  >
+                    <Plus size={16} />
+                  </button>
+                </div>
+
+                {/* Total & Delete */}
+                <div className="text-right flex flex-row sm:flex-col items-center sm:items-end gap-6 sm:gap-2">
+                  <p className="text-lg font-black text-slate-900">৳ {(item.price * item.qty).toFixed(2)}</p>
+                  <button 
+                    onClick={() => removeItem(item.id)}
+                    className="p-2 text-slate-300 hover:text-red-500 hover:bg-red-50 rounded-lg transition-all"
+                  >
+                    <Trash2 size={20} />
+                  </button>
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="bg-white p-20 rounded-3xl text-center border-2 border-dashed border-slate-200">
+              <ShoppingBag size={60} className="mx-auto text-slate-200 mb-4" />
+              <p className="text-xl font-bold text-slate-400">Your cart is empty</p>
+            </div>
+          )}
+        </div>
+
+        {/* Summary Sidebox */}
+        <div className="space-y-6">
+          <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 sticky top-8">
+            <h2 className="text-xl font-bold text-slate-800 mb-6">Order Summary</h2>
+            
+            <div className="space-y-4 text-sm font-medium">
+              <div className="flex justify-between text-slate-400">
+                <span>Subtotal</span>
+                <span className="text-slate-800 font-bold">৳ {subtotal.toFixed(2)}</span>
+              </div>
+              <div className="flex justify-between text-slate-400">
+                <span>Discount</span>
+                <span className="text-green-500 font-bold">- ৳ {items.length > 0 ? discount.toFixed(2) : "0.00"}</span>
+              </div>
+              <div className="flex justify-between text-slate-400 border-b pb-4">
+                <span>Delivery Charge</span>
+                <span className="text-slate-800 font-bold">FREE</span>
+              </div>
+              <div className="flex justify-between items-center text-xl font-black text-slate-900 pt-2">
+                <span>Total Amount</span>
+                <span>৳ {Math.max(0, total).toFixed(2)}</span>
+              </div>
+            </div>
+
+            <div className="mt-8 space-y-3">
+              <div className="flex gap-2">
+                <input 
+                  type="text" 
+                  placeholder="Coupon" 
+                  className="w-full bg-slate-50 border border-slate-100 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-blue-400 transition-all text-sm font-semibold"
+                />
+                <button className="bg-slate-800 text-white px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-slate-900 transition-all">
+                  Apply
+                </button>
+              </div>
+              <button className="w-full bg-blue-600 text-white py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-blue-700 shadow-xl shadow-blue-100 active:scale-95 transition-all">
+                Proceed to Checkout
+              </button>
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* Checkout Button */}
-      <div className="mt-6 flex justify-end">
-        <button className="bg-cyan-400 text-white px-10 py-3 font-bold rounded hover:bg-cyan-500 transition-all shadow-lg hover:shadow-cyan-200 active:scale-95">
-          CHECKOUT
-        </button>
       </div>
     </div>
   );

@@ -15,9 +15,9 @@ const MeditrustHero = () => {
           {/* Main Illustration Placeholder (Replace src with your actual image path) */}
           <div className="relative z-10 animate-in slide-in-from-left duration-1000">
              <img 
-               src="/path-to-your-medical-illustration.png" 
+               src="https://img.freepik.com/free-vector/health-insurance-concept-illustration_114360-1505.jpg" 
                alt="Healthcare illustration" 
-               className="max-w-full h-auto drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
+               className=" w-[80%] rounded-2xl drop-shadow-2xl transition-transform duration-500 group-hover:scale-105"
              />
           </div>
 

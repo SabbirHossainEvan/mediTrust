@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
-// EffectFade এবং Autoplay ব্যবহার করা হয়েছে
+
 import { Pagination, Autoplay, EffectFade } from "swiper/modules";
 
 // Swiper Styles
@@ -9,7 +9,6 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 
-// ইমেজগুলো ইমপোর্ট করুন (আপনার পাথ অনুযায়ী)
 import img1 from "../assets/image 22 (1).png";
 import img2 from "../assets/image 19.png";
 import img3 from "../assets/image 20.png";

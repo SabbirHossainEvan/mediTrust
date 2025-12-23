@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[500px] lg:h-[80vh] w-full bg-gradient-to-r from-[#DBEAFE] via-[#BFDBFE] to-[#93C5FD] overflow-hidden flex items-center">
+    <section className="relative min-h-[500px] lg:h-[80vh] w-full bg-gradient-to-r from-[#DBEAFE] via-[#BFDBFE] to-[#93C5FD] overflow-hidden pt-10 md:pt-0 flex items-center">
       
       {/* Background Decorative Shapes */}
       <div className="absolute inset-0 z-0 opacity-20">
