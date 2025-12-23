@@ -95,7 +95,6 @@ const MedicineSection = () => {
         {medicines.map((item, index) => (
           <SwiperSlide key={item.id}>
             <motion.div
-              // New Animation: Scale up + Rotate entry
               initial={{ opacity: 0, scale: 0.8, rotateY: 30 }}
               whileInView={{ opacity: 1, scale: 1, rotateY: 0 }}
               transition={{
@@ -106,7 +105,7 @@ const MedicineSection = () => {
               viewport={{ once: true }}
               className="bg-[#F1F3F6] rounded-[35px] p-5 shadow-sm border border-transparent hover:border-indigo-200 transition-all group h-full"
             >
-              {/* Image Container with Bounce Hover */}
+
               <div className="bg-white rounded-[30px] p-6 mb-6 h-56 gap-5 flex items-center justify-center shadow-inner relative overflow-hidden">
                 <motion.img
                   whileHover={{
@@ -121,7 +120,7 @@ const MedicineSection = () => {
                     e.target.src = "https://via.placeholder.com/200";
                   }}
                 />
-                {/* Decorative circle behind image */}
+
                 <div className="absolute w-32 h-32 bg-indigo-50 rounded-full -bottom-10 -right-10 group-hover:scale-150 transition-transform duration-500" />
               </div>
 
@@ -144,7 +143,7 @@ const MedicineSection = () => {
                 </div>
               </div>
 
-              {/* Buttons with Slide In effect */}
+
               <div className="flex gap-2">
                 <motion.button
                   whileHover={{ y: -2 }}

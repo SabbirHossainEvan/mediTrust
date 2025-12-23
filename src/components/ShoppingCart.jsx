@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Trash2, ShoppingBag, Plus, Minus } from 'lucide-react';
 
 const ShoppingCart = () => {
-  // Updated with professional medical/health product images
+
   const [items, setItems] = useState([
     { 
       id: 1, 
@@ -133,7 +133,7 @@ const ShoppingCart = () => {
           )}
         </div>
 
-        {/* Summary Sidebox */}
+
         <div className="space-y-6">
           <div className="bg-white p-8 rounded-3xl shadow-sm border border-slate-100 sticky top-8">
             <h2 className="text-xl font-bold text-slate-800 mb-6">Order Summary</h2>

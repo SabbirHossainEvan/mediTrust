@@ -5,7 +5,7 @@ import doctor from '../assets/Doctors.png'
 const DoctorConsultation = () => {
   return (
     <div className="max-w-8xl mx-auto  md:px-50 py-10">
-      {/* Main Container with Gradient Background */}
+
       <motion.div 
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -17,7 +17,7 @@ const DoctorConsultation = () => {
         {/* Content Wrapper */}
         <div className="container mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 items-end gap-6 h-full">
           
-          {/* Left Side: Doctor Images */}
+
           <div className="relative flex items-end justify-center md:justify-start h-full pt-10">
             <motion.div 
               initial={{ x: -100, opacity: 0 }}
@@ -25,7 +25,6 @@ const DoctorConsultation = () => {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="relative z-10 w-[60%] md:w-full max-w-[400px]"
             >
-              {/* Note: Replace with your actual doctors image path */}
               <img 
                 src={doctor}
                 alt="Doctors" 
@@ -35,7 +34,6 @@ const DoctorConsultation = () => {
             </motion.div>
           </div>
 
-          {/* Right Side: Text and Button */}
           <div className="flex flex-col justify-center items-center md:items-start text-center md:text-left py-10 md:py-0">
             <motion.p 
               initial={{ opacity: 0 }}
@@ -66,7 +64,6 @@ const DoctorConsultation = () => {
 
         </div>
 
-        {/* Decorative Light Effect */}
         <div className="absolute top-0 right-0 w-full h-full bg-white opacity-[0.05] pointer-events-none transform -skew-x-12 translate-x-1/2"></div>
       </motion.div>
     </div>

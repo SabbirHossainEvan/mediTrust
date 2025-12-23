@@ -17,7 +17,7 @@ const ContactSection = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Sending Email:", formData);
-    // Add your email service integration here (e.g., EmailJS or a backend route)
+
   };
 
   return (
@@ -57,7 +57,7 @@ const ContactSection = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {/* Phone Number with Flag Placeholder */}
+
             <div className="relative">
               <div className="absolute left-4 top-1/2 -translate-y-1/2 flex items-center gap-2">
                 <img 

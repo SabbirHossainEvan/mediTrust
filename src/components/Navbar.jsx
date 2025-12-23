@@ -4,14 +4,14 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, ShoppingCart, User, Menu, X } from 'lucide-react';
-import { Link, useLocation } from 'react-router-dom'; // Link ebong location import kora hoyeche
+import { Link, useLocation } from 'react-router-dom'; 
 import logoImage from '../assets/logoImage.svg';
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const location = useLocation(); // Current path check korar jonno
+  const location = useLocation(); 
 
-  // Path shoho navigation links
+
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Medicine', path: '/medicine' },
@@ -23,7 +23,7 @@ const Navbar = () => {
     <nav className="bg-[#E5E7EB] px-4 py-3 shadow-sm sticky top-0 z-50">
       <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
         
-        {/* Logo - Home e jawar jonno Link add kora hoyeche */}
+
         <Link to="/" className="flex items-center gap-2 min-w-fit">
           <img src={logoImage} alt="MediTrust Logo" className="w-8 h-8 object-contain" />
           <span className="font-bold text-[#2E5A88] text-xl sm:text-3xl flex">

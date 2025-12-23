@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingCart, Zap, ChevronLeft, ChevronRight } from 'lucide-react';
 
-// Enhanced Data with professional medicine images
+
 const medicineData = [
   { id: 1, name: 'Sergel', mg: '20 mg', company: 'Healthcare Pharmaceuticals Ltd.', price: 90.00, image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=500' },
   { id: 2, name: 'Napa Extend', mg: '665 mg', company: 'Beximco Pharmaceuticals Ltd.', price: 15.00, image: 'https://images.unsplash.com/photo-1550572017-ed200f5e6a33?q=80&w=500' },
@@ -43,7 +43,7 @@ const MedicineSection = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 mt-12">
-        {/* Header with Filters */}
+
         <div className="flex flex-col md:flex-row md:items-center justify-between border-b border-gray-200 pb-6 mb-10 gap-6">
           <div className="flex items-center gap-3">
             <h2 className="text-3xl font-bold text-slate-800">Medicines</h2>

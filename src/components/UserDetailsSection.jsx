@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { User, Camera } from 'lucide-react';
 
 const UserDetailsSection = () => {
-  // State to handle dynamic input changes
+
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -20,12 +20,12 @@ const UserDetailsSection = () => {
   const handleSave = (e) => {
     e.preventDefault();
     console.log('Form Data Saved:', formData);
-    // Add your save logic here
+
   };
 
   return (
     <div className="relative min-h-screen flex items-center justify-center p-4">
-      {/* 1. Dynamic Background Image with Blur Overlay */}
+
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat transition-all duration-1000"
         style={{ 
@@ -35,7 +35,6 @@ const UserDetailsSection = () => {
         <div className="absolute inset-0 bg-blue-900/10 backdrop-blur-[2px]"></div>
       </div>
 
-      {/* 2. Main Form Container (Responsive & Animated) */}
       <div className="relative z-10 w-full max-w-2xl bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl overflow-hidden shadow-2xl animate-in fade-in zoom-in duration-500">
         
         {/* Header Banner */}
@@ -46,8 +45,7 @@ const UserDetailsSection = () => {
         </div>
 
         <form onSubmit={handleSave} className="p-8 md:p-12 space-y-5">
-          
-          {/* 3. Profile Avatar with Hover Animation */}
+
           <div className="flex justify-center mb-6">
             <div className="relative group">
               <div className="w-32 h-32 md:w-40 md:h-40 bg-white rounded-full flex items-center justify-center border-4 border-white shadow-xl transition-transform duration-300 group-hover:scale-105">

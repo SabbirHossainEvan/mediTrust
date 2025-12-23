@@ -10,7 +10,7 @@ const ExpertiseSection = () => {
     { label: "DISEASE CURABILITY", percentage: 60 },
     { label: "HAPPY PATIENTS", percentage: 60 },
     { label: "CASES SOLVED", percentage: 75 },
-    { label: "CASES SOLVED", percentage: 75 }, // Duplicate per original design
+    { label: "CASES SOLVED", percentage: 75 }, 
   ];
 
   useEffect(() => {

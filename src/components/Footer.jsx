@@ -91,10 +91,9 @@ const Footer = () => {
           </motion.div>
         </div>
 
-        {/* Bottom Border Line */}
         <div className="border-t border-gray-700 my-8"></div>
 
-        {/* Bottom Footer Section */}
+
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }}>
             <h2 className="text-[#90BC3F] text-2xl font-bold mb-2">MediTrust</h2>

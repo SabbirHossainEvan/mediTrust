@@ -83,7 +83,7 @@ const HeroSlider = () => {
                 transition={{ duration: 0.8 }}
                 className="w-full lg:w-1/2 flex justify-center relative"
               >
-                {/* Floating Animation for Image */}
+
                 <motion.img 
                   src={slide.image} 
                   alt="Medical Illustration"
@@ -91,8 +91,7 @@ const HeroSlider = () => {
                   animate={{ y: [0, -15, 0] }}
                   transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                 />
-                
-                {/* Background Circle Decoration */}
+
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-200/50 rounded-full blur-3xl -z-0" />
               </motion.div>
 
@@ -101,7 +100,7 @@ const HeroSlider = () => {
         ))}
       </Swiper>
 
-      {/* Custom Styles for Swiper Pagination/Navigation */}
+
       <style jsx global>{`
         .swiper-button-next, .swiper-button-prev {
           color: #1E3A8A !important;

@@ -24,7 +24,7 @@ const UserProfileDetails = () => {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center p-4 bg-gray-100">
-      {/* Background Image with Overlay */}
+
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center"
         style={{ backgroundImage: `url('https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=2070')` }}

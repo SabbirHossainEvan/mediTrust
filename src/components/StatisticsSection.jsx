@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Smile, Calendar, Car } from 'lucide-react';
 
-// Custom Hook for the Count-Up Animation
 const useCountUp = (end, duration = 2000, startAnimate = false) => {
   const [count, setCount] = useState(0);
 
@@ -9,7 +8,7 @@ const useCountUp = (end, duration = 2000, startAnimate = false) => {
     if (!startAnimate) return;
 
     let start = 0;
-    const increment = end / (duration / 16); // 16ms per frame approx
+    const increment = end / (duration / 16); 
 
     const timer = setInterval(() => {
       start += increment;
@@ -49,7 +48,6 @@ const StatisticsSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const sectionRef = useRef(null);
 
-  // Intersection Observer to trigger animation on scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
