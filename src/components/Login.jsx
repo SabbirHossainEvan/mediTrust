@@ -36,7 +36,7 @@ const Login = () => {
                 </div>
 
                 {/* Right Side: Login Form */}
-                <div className="w-81 md:w-[500px] bg-white p-8 md:p-12 m-4 rounded-[30px] shadow-lg">
+                <div className="w-full md:w-[500px] bg-white p-8 md:p-12 m-4 rounded-[30px] shadow-lg">
                     <div className="mb-8">
                         <h2 className="text-3xl font-bold text-gray-900">Welcome Back!</h2>
                         <p className="text-gray-500 text-sm mt-2">Log in to start managing your health with ease.</p>
