@@ -91,7 +91,7 @@ const MedicineSection = () => {
           640: { slidesPerView: 2 },
           1024: { slidesPerView: 4 },
         }}
-        className="pb-20"
+        className="pb-30"
       >
         {medicines.map((item, index) => (
           <SwiperSlide key={item.id}>
