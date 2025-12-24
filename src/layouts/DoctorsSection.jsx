@@ -10,7 +10,7 @@ const doctorData = [
   { id: 5, name: 'Dr. Sophia Martinez', specialty: 'Gynecologist', hospital: 'City Women’s Hospital', rating: 4.9, experience: '14 Years', image: 'https://images.unsplash.com/photo-1527613426441-4da17471b66d?q=80&w=500' },
   { id: 6, name: 'Dr. Robert Brown', specialty: 'Orthopedic', hospital: 'Bone & Joint Institute', rating: 4.8, experience: '20 Years', image: 'https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=500' },
   { id: 7, name: 'Dr. Lisa Wang', specialty: 'Psychiatrist', hospital: 'Mind Wellness Center', rating: 5.0, experience: '9 Years', image: 'https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?q=80&w=500' },
-  { id: 8, name: 'Dr. David Miller', specialty: 'General Surgeon', hospital: 'Metropolitan Hospital', rating: 4.7, experience: '18 Years', image: 'https://images.unsplash.com/photo-1622902046580-2b47f47f0871?q=80&w=500' },
+  { id: 8, name: 'Dr. David Miller', specialty: 'General Surgeon', hospital: 'Metropolitan Hospital', rating: 4.7, experience: '18 Years', image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=500' },
   { id: 9, name: 'Dr. Anna Taylor', specialty: 'Endocrinologist', hospital: 'Diabetes Care Unit', rating: 4.9, experience: '11 Years', image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=500' },
   { id: 10, name: 'Dr. Kevin Lee', specialty: 'Ophthalmologist', hospital: 'Vision Eye Hospital', rating: 4.8, experience: '13 Years', image: 'https://images.unsplash.com/photo-1591604466107-ec97de577aff?q=80&w=500' },
   { id: 11, name: 'Dr. Rachel Adams', specialty: 'Dentist', hospital: 'Pearl Dental Clinic', rating: 4.6, experience: '7 Years', image: 'https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=500' },

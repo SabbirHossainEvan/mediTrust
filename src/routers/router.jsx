@@ -6,6 +6,10 @@ import Doctors from "../pages/Doctors";
 import Cart from "../pages/Cart";
 import Profile from "../pages/Profile";
 import About from "../pages/About";
+import Login from "../components/Login";
+import LoginPages from "../pages/LoginPages";
+import RegisterPage from "../pages/RegisterPage";
+import CheckoutPage from "../pages/CheckoutPage";
 
 const router = createBrowserRouter([
     {
@@ -31,6 +35,18 @@ const router = createBrowserRouter([
     {
         path: "profile",
         element: <Profile />
+    },
+    {
+        path: "login",
+        element: <LoginPages />
+    },
+    {
+        path: "register",
+        element: <RegisterPage />
+    },
+    {
+        path: "checkout",
+        element: <CheckoutPage />
     },
 ])
 

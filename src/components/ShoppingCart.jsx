@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Trash2, ShoppingBag, Plus, Minus } from 'lucide-react';
+import { Link } from 'react-router';
 
 const ShoppingCart = () => {
 
@@ -168,9 +169,12 @@ const ShoppingCart = () => {
                   Apply
                 </button>
               </div>
-              <button className="w-full bg-blue-600 text-white py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-blue-700 shadow-xl shadow-blue-100 active:scale-95 transition-all">
+              <Link to={"/checkout"}>
+                            <button className="w-full bg-blue-600 text-white py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-blue-700 shadow-xl shadow-blue-100 active:scale-95 transition-all">
                 Proceed to Checkout
               </button>
+              </Link>
+
             </div>
           </div>
         </div>

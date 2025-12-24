@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShoppingCart, Zap, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router';
 
 
 const medicineData = [
   { id: 1, name: 'Sergel', mg: '20 mg', company: 'Healthcare Pharmaceuticals Ltd.', price: 90.00, image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=500' },
-  { id: 2, name: 'Napa Extend', mg: '665 mg', company: 'Beximco Pharmaceuticals Ltd.', price: 15.00, image: 'https://images.unsplash.com/photo-1550572017-ed200f5e6a33?q=80&w=500' },
+  { id: 2, name: 'Napa Extend', mg: '665 mg', company: 'Beximco Pharmaceuticals Ltd.', price: 15.00, image: 'https://images.unsplash.com/photo-1585435557343-3b092031a831?q=80&w=500' },
   { id: 3, name: 'Seclo', mg: '20 mg', company: 'Square Pharmaceuticals Ltd.', price: 45.00, image: 'https://images.unsplash.com/photo-1471864190281-a93a3070b6de?q=80&w=500' },
-  { id: 4, name: 'Fexo', mg: '120 mg', company: 'Incepta Pharmaceuticals Ltd.', price: 80.00, image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbbb88?q=80&w=500' },
+  { id: 4, name: 'Fexo', mg: '120 mg', company: 'Incepta Pharmaceuticals Ltd.', price: 80.00, image: 'https://images.unsplash.com/photo-1527613426441-4da17471b66d?q=80&w=500' },
   { id: 5, name: 'Monas', mg: '10 mg', company: 'ACME Laboratories Ltd.', price: 120.00, image: 'https://images.unsplash.com/photo-1628771065518-0d82f1938462?q=80&w=500' },
   { id: 6, name: 'Zithrin', mg: '500 mg', company: 'Square Pharmaceuticals Ltd.', price: 210.00, image: 'https://images.unsplash.com/photo-1607619056574-7b8d3ee536b2?q=80&w=500' },
   { id: 7, name: 'Fenofix', mg: '200 mg', company: 'Healthcare Pharmaceuticals Ltd.', price: 150.00, image: 'https://images.unsplash.com/photo-1512069772995-ec65ed45afd6?q=80&w=500' },
-  { id: 8, name: 'Rivotril', mg: '0.5 mg', company: 'Radiant Pharmaceuticals Ltd.', price: 60.00, image: 'https://images.unsplash.com/photo-1579165466541-74e2b70a11d3?q=80&w=500' },
+  { id: 8, name: 'Rivotril', mg: '0.5 mg', company: 'Radiant Pharmaceuticals Ltd.', price: 60.00, image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=500' },
   { id: 9, name: 'Alatrol', mg: '10 mg', company: 'Square Pharmaceuticals Ltd.', price: 30.00, image: 'https://images.unsplash.com/photo-1585435557343-3b092031a831?q=80&w=500' },
   { id: 10, name: 'Esonix', mg: '20 mg', company: 'Incepta Pharmaceuticals Ltd.', price: 70.00, image: 'https://images.unsplash.com/photo-1527613426441-4da17471b66d?q=80&w=500' },
   { id: 11, name: 'Finix', mg: '20 mg', company: 'Opsonin Pharma Ltd.', price: 50.00, image: 'https://images.unsplash.com/photo-1615461066159-fea0960485d5?q=80&w=500' },
-  { id: 12, name: 'Maxpro', mg: '20 mg', company: 'Renata Limited', price: 95.00, image: 'https://images.unsplash.com/photo-1550572017-4f3b23766472?q=80&w=500' },
+  { id: 12, name: 'Maxpro', mg: '20 mg', company: 'Renata Limited', price: 95.00, image: 'https://images.unsplash.com/photo-1585435557343-3b092031a831?q=80&w=500' },
 ];
 
 const MedicineSection = () => {
@@ -110,7 +111,8 @@ const MedicineSection = () => {
                 </div>
 
                 {/* Actions */}
-                <div className="p-4 pt-0 grid grid-cols-2 gap-3">
+                <Link to={"/cart"}>
+                                <div className="p-4 pt-0 grid grid-cols-2 gap-3">
                   <button className="flex items-center justify-center gap-2 bg-slate-50 text-slate-700 py-3 rounded-xl text-xs font-bold hover:bg-slate-100 active:scale-95 transition-all">
                     <ShoppingCart size={16} /> Cart
                   </button>
@@ -118,6 +120,8 @@ const MedicineSection = () => {
                     <Zap size={16} /> Buy Now
                   </button>
                 </div>
+                </Link>
+
               </motion.div>
             ))}
           </AnimatePresence>

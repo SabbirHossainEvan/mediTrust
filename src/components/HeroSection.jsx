@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router';
 
 const HeroSection = () => {
   return (
@@ -42,9 +43,12 @@ const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
           >
+            <Link to={"/register"}>
             <button className="bg-[#2563EB] hover:bg-[#1E40AF] text-white px-8 py-3 rounded-full font-bold shadow-lg transition-all transform hover:scale-105">
               Get Started
             </button>
+            </Link>
+            
             <button className="border-2 border-[#2563EB] text-[#2563EB] px-8 py-3 rounded-full font-bold hover:bg-[#2563EB] hover:text-white transition-all">
               Learn More
             </button>

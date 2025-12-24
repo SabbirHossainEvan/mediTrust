@@ -13,6 +13,7 @@ import img1 from "../assets/image 22 (1).png";
 import img2 from "../assets/image 19.png";
 import img3 from "../assets/image 20.png";
 import img4 from "../assets/image 21.png";
+import { Link } from "react-router";
 
 const MedicineSection = () => {
   const medicines = [
@@ -145,20 +146,26 @@ const MedicineSection = () => {
 
 
               <div className="flex gap-2">
-                <motion.button
+                <Link to={"/cart"} className="flex-1 bg-[#5D5FEF] text-white text-center text-[11px] font-bold py-3.5 rounded-2xl shadow-lg shadow-indigo-200">
+                                  <motion.button
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.9 }}
-                  className="flex-1 bg-[#5D5FEF] text-white text-[11px] font-bold py-3.5 rounded-2xl shadow-lg shadow-indigo-200"
+                  
                 >
                   Add to cart
                 </motion.button>
-                <motion.button
+                </Link>
+                
+                <Link to={"/cart"} className="flex-1 text-center bg-white text-[#5D5FEF] border border-[#5D5FEF] text-[11px] font-bold py-3.5 rounded-2xl hover:bg-indigo-50">
+                                <motion.button
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.9 }}
-                  className="flex-1 bg-white text-[#5D5FEF] border border-[#5D5FEF] text-[11px] font-bold py-3.5 rounded-2xl hover:bg-indigo-50"
+                  
                 >
                   Buy Now
                 </motion.button>
+                </Link>
+
               </div>
             </motion.div>
           </SwiperSlide>

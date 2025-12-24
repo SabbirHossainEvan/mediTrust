@@ -23,7 +23,7 @@ const UserProfileDetails = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center p-4 bg-gray-100">
+    <section className="relative min-h-screen flex items-center justify-center p-4 py-10 bg-gray-100">
 
       <div 
         className="absolute inset-0 z-0 bg-cover bg-center"

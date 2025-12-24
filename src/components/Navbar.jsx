@@ -81,7 +81,7 @@ const Navbar = () => {
             </motion.button>
           </Link>
           
-          <Link to="/profile">
+          <Link to="/login">
             <motion.button 
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -102,7 +102,7 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu Animation */}
-      <AnimatePresence>
+      {/* <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -137,7 +137,57 @@ const Navbar = () => {
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence> */}
+
+      {/* Mobile Menu Animation */}
+<AnimatePresence>
+  {isMobileMenuOpen && (
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      className="lg:hidden bg-white mt-3 rounded-2xl overflow-hidden shadow-xl border border-gray-100"
+    >
+      <div className="flex flex-col p-5 gap-4">
+        {navLinks.map((link) => (
+          <Link
+            key={link.name}
+            to={link.path}
+            onClick={() => setIsMobileMenuOpen(false)}
+            className={`text-left font-semibold py-2 px-4 rounded-lg transition-all ${
+              location.pathname === link.path 
+                ? 'bg-blue-50 text-blue-600' 
+                : 'text-gray-700 hover:bg-gray-50'
+            }`}
+          >
+            {link.name}
+          </Link>
+        ))}
+
+        {/* --- User Profile Link for Mobile --- */}
+        <Link
+          to="/login"
+          onClick={() => setIsMobileMenuOpen(false)}
+          className="flex items-center gap-3 font-semibold py-2 px-4 rounded-lg text-gray-700 hover:bg-gray-50"
+        >
+          <User size={20} />
+          <span>Profile</span>
+        </Link>
+        {/* ------------------------------------ */}
+
+        <div className="h-px bg-gray-100 my-1" />
+        <div className="relative md:hidden">
+          <input
+            type="text"
+            placeholder="Search..."
+            className="w-full bg-gray-50 rounded-xl py-3 px-4 outline-none border border-gray-100 focus:border-blue-300"
+          />
+          <Search size={18} className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400" />
+        </div>
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
     </nav>
   );
 };
